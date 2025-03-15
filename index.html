@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスクスケジュール管理</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PDF生成用ライブラリ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container" id="scheduleContainer">
+        <header class="header">
+            <div class="date-container">
+                <input type="date" id="dateInput" class="date-input">
+                <div id="formattedDate" class="formatted-date"></div>
+            </div>
+            <div class="action-buttons">
+                <button id="pdfButton" class="btn">PDF出力</button>
+                <button id="settingsButton" class="btn">設定</button>
+            </div>
+        </header>
+        
+        <main class="schedule-content">
+            <div class="two-column-grid">
+                <div class="schedule-column left-column">
+                    <!-- 8:00〜13:30までの時間ブロック -->
+                </div>
+                <div class="schedule-column right-column">
+                    <!-- 14:00〜17:00までの時間ブロック -->
+                </div>
+            </div>
+        </main>
+        
+        <!-- フッターを削除 -->
+    </div>
+
+    <!-- 設定モーダル -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>設定</h2>
+            <div class="settings-options">
+                <div class="setting-item">
+                    <label for="fontSizeSelect">フォントサイズ:</label>
+                    <select id="fontSizeSelect">
+                        <option value="small">小</option>
+                        <option value="medium" selected>中</option>
+                        <option value="large">大</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="themeSelect">テーマ:</label>
+                    <select id="themeSelect">
+                        <option value="default" selected>標準</option>
+                        <option value="minimal">ミニマル</option>
+                        <option value="elegant">エレガント</option>
+                    </select>
+                </div>
+                <button id="saveSettings" class="btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
